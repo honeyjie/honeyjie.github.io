@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>扁平化风格博客</title>
+	<link rel="stylesheet" type="text/css" href="/CSS/rest_global.css">
+	<script src="/lib/jquery/jquery.min.js"></script>
+</head>
+<style>
+body {
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	background: url(/picture/blog/banner.jpg) no-repeat center center;
+	background-attachment: fixed;
+	font-size: 14px;
+}
+header {
+	margin: 0;
+	padding: 0;
+}
+	nav {
+		background: #333;
+		height: 50px;
+		width: 100%;
+		z-index: 9999;
+	}
+	#banner {
+		background: rgba(0,0,0,0.1);
+		margin: 0;
+		padding: 0;
+	}
+	nav ul {
+		list-style: none;
+		margin: 0;
+		float: right;
+	}
+	nav ul li {
+		display: inline-block;
+		line-height: 50px;
+		float: right;
+		margin-right: 20px;
+	}
+	nav ul li a {
+		line-height: 50px;
+		text-decoration: none;
+		display: inline-block;
+		height: inherit;
+		color: #fff;
+	}
+	nav .logo{
+		float: left;
+		font-size: 20px;
+		letter-spacing: 1px;
+		line-height: 50px;
+		margin-left: 20px;
+
+	}
+	.logo a {
+		color: #fff;
+		text-decoration: none;
+	}
+	#banner .inner {
+
+		max-width: 40%;
+		text-align: center;
+		margin: 0 auto;
+		display: block;
+		padding-top: 200px;
+	}
+	#banner .inner h1 {
+		margin: 0;
+		padding: 12px;
+		border-top: 2px solid #fff;
+		border-bottom: 2px solid #fff;
+		color: #fff;
+	}
+	.wrapper h2 {
+		font-size: 2em;
+	}
+	.hr {
+		height: 2px;
+		width: 100%;
+		margin: 20px auto;
+	}
+	.green-section .hr{
+		background: #078494;
+		width: 60%;
+	}
+	.sub-heading {
+		font-size: 18px;
+		line-height: 30px;
+		margin-left: 20px;
+	}
+	.main-btn {
+		border: none;
+		background: rgb(95,156,177);
+		color: #eee;
+		padding: 14px 40px;
+		font-size: 16px;
+		margin: 50px auto;
+	}
+	#banner .inner .more {
+		padding: 20px;
+	}
+	.green-section {
+		text-align: center;
+		background: #089D80;
+		margin: 0;
+	}
+	.wrapper {
+		max-width: 80%;
+		margin: 0 auto;
+		padding: 100px 0;
+	}
+	.green-section .icon-group span{
+		display: inline-block;
+		width: 80px;
+		height: 80px;
+		background: #0D6F7C;
+		margin: 20px;
+		transform: rotate(45deg);
+	}
+	.green-section .icon-group {
+		margin-top: 20px;
+	}
+	.gray-section {
+		background: #252F34;
+		color: #fff;
+		
+	}
+	.gray-section .img-section{
+		width: 45%;
+	}
+	.img-section img {
+		width: 100%;
+	}
+
+	.article-review:after,.purple-section:after{
+		content: "";
+		display: block;
+		clear: both;
+		height: 0;
+
+	}
+	.gray-section .text-section {
+		margin: 0;
+		width: 55%;
+	}
+	.text-section * {
+		width: 90%;
+		padding-left: 20px;
+	}
+	.article-review h2 {
+		margin-top: 30px;
+		font-size: 20px;
+		margin-left: 20px;
+	}
+	p{
+		font-size: 14px;
+		letter-spacing: 1px;
+		max-width: 700px;
+		margin: 20px auto;
+	}
+	.article-review > div {
+		float: left;
+	}
+	.article-review:nth-child(2n+1){
+		background: rgba(255,255,255,0.1);
+	}
+	.purple-section {
+		background: #262149;
+		padding: 80px;
+		text-align: center;
+	}
+	.purple-section .heading-wrapper{
+		text-align: center;
+	}
+	.heading-wrapper h2{
+		margin: 0;
+
+	}
+	.heading-wrapper .hr {
+		width: 60%;
+		background: #373259;
+		height: 2px;
+	}
+	.card-group .card{
+		float: left;
+		width: 50%;
+		min-height: 300px;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+	h3 {
+		font-size: 24px;
+	}
+	.card-group>.card:nth-child(1) {
+		background: rgba(0,0,0,0.04);
+	}
+	.card-group>.card:nth-child(2) {
+		background: rgba(0,0,0,0.08);
+	}
+	.card-group>.card:nth-child(3) {
+		background: rgba(0,0,0,0.12);
+	}
+	.card-group>.card:nth-child(4) {
+		background: rgba(0,0,0,0.16);
+	}
+	.card-group>.card:nth-child(5) {
+		background: rgba(0,0,0,0.20);
+	}
+	.card-group>.card:nth-child(6) {
+		background: rgba(0,0,0,0.24);
+	}
+	footer {
+		background: #333;
+		min-height: 200px;
+		text-align: center;
+	}
+	.share-group {
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+		padding: 50px;
+	}
+	.share-group li {
+		display: inline-block;
+		padding: 10px;
+	}
+	.copy {
+		padding: 20px;
+	}
+	#sidebar {
+		width: 300px;
+		background: #333;
+		position: fixed;
+		top: 0;
+		right: -300px;
+		bottom: 0;
+		list-style: none;
+		transition: right 0.5s;
+	}
+	#sidebar ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	#sidebar a {
+		width: 100%;
+		padding: 10px;
+		display: inline-block;
+		text-decoration: none;
+		color:#fff;
+		padding: 10px 30px;
+	}
+	#sidebar a:hover {
+		background: #444;
+	}
+	#mask {
+		position: fixed;
+		margin: 0;
+		padding: 0;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(0,0,0,0.5);
+		display: none;
+	}
+	#back {
+		position: fixed;
+		z-index: 10;
+		bottom: 30px;
+		right: 30px;
+		border: 1px solid #999;
+		padding: 5px 10px;
+	}
+</style>
+<body>
+	<header>
+		<nav>
+			<div class="logo"><a href="#">丸熊酱</a></div>
+			<ul>
+				<li id="sidebar_trigger"><a href="#">菜单</a></li>
+				<li><a href="#">留言</a></li>
+				<li><a href="#">设计</a></li>
+				<li><a href="#">产品</a></li>
+				<li><a href="#">技术</a></li>
+			</ul>
+		</nav>
+		<div id="banner">
+			<div class="inner">
+				<h1>丸熊酱的好天气</h1>
+				<p class="sub-heading">丸熊酱的好天气丸熊酱的好天气丸熊酱的好天气丸熊酱的好天气丸熊酱的好天气</p>
+				<button class="main-btn">发现</button>
+				<div class="more">
+					更多
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="content">
+		<section class="green-section">
+			<div class="wrapper">
+				<div>
+					<h2>一个标题</h2>
+					<div class="hr"></div>
+					<p class="sub-heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod rem et cumque optio, mollitia voluptatem ullam deserunt aliquid ab, ipsa veniam itaque impedit quo ad quisquam saepe. Earum, nobis, aliquam!</p>
+				</div>
+				<div class="icon-group">
+					<span>item1</span>
+					<span>item2</span>
+					<span>item3</span>
+				</div>
+			</div>
+		</section>
+		<section class="gray-section">
+			<div class="article-review">
+				<div class="img-section">
+					<img src="/picture/blog/pic01.jpg">
+				</div>
+				<div class="text-section">
+					<h2>又一个标题</h2>
+					<div class="sub-heading">我是副标题</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod rem et cumque optio, mollitia voluptatem ullam deserunt aliquid ab</p>
+				</div>
+			</div>
+			<div class="article-review">
+				<div class="text-section">
+					<h2>又一个标题</h2>
+					<div class="sub-heading">我是副标题</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod rem et cumque optio, mollitia voluptatem ullam deserunt aliquid ab</p>
+				</div>
+				<div class="img-section">
+					<img src="/picture/blog/pic02.jpg">
+				</div>
+			</div>
+			<div class="article-review">
+				<div class="img-section">
+					<img src="/picture/blog/pic03.jpg">
+				</div>
+				<div class="text-section">
+					<h2>又一个标题</h2>
+					<div class="sub-heading">我是副标题</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod rem et cumque optio, mollitia voluptatem ullam deserunt aliquid ab</p>
+				</div>
+			</div>
+		</section>
+		<section class="purple-section">
+			<div class="wrapper">
+				<div class="heading-wrapper">
+					<h2>Lorem ipsum dolor sit amet</h2>
+					<div class="hr"></div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+				</div>
+				<div class="card-group">
+					<div class="card">
+						<h3>标题三</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+					</div>
+					<div class="card">
+						<h3>标题三</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+					</div>
+					<div class="card">
+						<h3>标题三</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+					</div>
+					<div class="card">
+						<h3>标题三</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+					</div>
+					<div class="card">
+						<h3>标题三</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+					</div>
+					<div class="card">
+						<h3>标题三</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer>
+		<ul class="share-group">
+			<li>item</li>
+			<li>item</li>
+			<li>item</li>
+			<li>item</li>
+			<li>item</li>
+		</ul>
+		<div class="copy">
+			&copy 丸熊酱
+		</div>
+	</footer>
+	<div id="sidebar">
+		<ul>
+			<li><a href="#">item1</a></li>
+			<li><a href="#">item2</a></li>
+			<li><a href="#">item3</a></li>
+			<li><a href="#">item4</a></li>
+			<li><a href="#">item5</a></li>
+		</ul>
+	</div>
+	<div id="mask"></div>
+	<div id="back">返回顶部</div>
+	<script>
+		$(function(){
+	var sidebar = $("#sidebar"),
+	mask = $("#mask"),
+	sidebar_trigger = $("#sidebar_trigger");
+
+	function showSidebar(){
+		mask.fadeIn();
+		sidebar.css("right", 0);
+	}
+	function hideSidebar(){
+		mask.fadeOut();
+	sidebar.css("right", -sidebar.width());
+	}
+	sidebar_trigger.on("click",showSidebar)
+	mask.on("click",hideSidebar);
+
+	var back = $("#back");
+	back.on("click",function(){
+		$("html, body").animate({
+			scrollTop:0
+		}, 600)
+	})
+
+	$(window).on("scroll",function(){
+		if($(window).scrollTop()>$(window).height())
+		{
+			back.fadeIn();
+		}
+		else{
+			back.fadeOut();
+		}
+	})
+	$(window).trigger("scroll");
+}) 
+	</script>
+
+</body>
+</html>

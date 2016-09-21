@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Xiong</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/articleband.css">
+	<script src="/lib/jquery/jquery.min.js"></script>
+</head>
+<style>
+	#div1 {
+			width: 200px;
+			height: 143px;
+			position: relative;
+			top: 0;
+			left: 0;
+		}
+		#div1 img {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#div1 span {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			background: rgba(10,100,190,0.5);
+			display: none;
+		}
+		#div2 {
+			width: 400px;
+			height: 286px;
+		    display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 210px;
+			overflow: hidden;
+			display: none;
+		}
+		#div2 img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 2;
+
+		}
+</style>
+<body>
+	<header>
+		<div class="global-nav">
+			<h1>丸熊酱</h1>
+			<ul>
+				<li><a href="/">首页</a></li>
+				<li><a href="/resum">简历</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="wrapper">
+		<div class="main">
+			<div class="art-content">
+				<article>
+				<h2>放大镜效果</h2>
+				<p>运用到的方法</p>
+				<div id="wrap">
+					<div id="div1">
+						<img src="../picture/small.png">
+						<span></span>
+					</div>
+					<div id="div2">
+					<img src="../picture/large.png">
+					</div>
+				</div>
+				<button class= "detail">功能介绍</button>
+				<article class="article">
+				<p>实现这个的思路是：
+				<p></p>
+				<button class= "detail">重要代码</button>
+			<ul>
+				<li><h3></h3>
+				<p>
+				</p>
+					<code>
+						<textarea spellcheck="false" class="code_text">
+$(document).ready(function(){
+	$("#div1").mouseover(function(){
+		$("#div1 span").show();
+		$("#div2").show();
+	});
+
+	$("#div1").mouseout(function(){
+		$("#div1 span").hide();
+		$("#div2").hide();
+	});
+
+	$("#div1").mousemove(function(e){
+		var e =e || event;
+
+		var x = e.clientX - $("#div1 span").outerWidth(true)/2;
+		var y = e.clientY - $("#div1 span").outerHeight(true)/2;
+
+		if( x < 0 ){
+			x = 0;
+		}
+		if( x > $("#div1").outerWidth(true) - $("#div1 span").outerWidth(true)){
+			x = $("#div1").outerWidth(true) - $("#div1 span").outerWidth(true);
+		}
+
+		if( y < 0 ){
+			y = 0;
+		}
+		if( y > $("#div1").outerHeight(true) - $("#div1 span").outerHeight(true)){
+			y = $("#div1").outerHeight(true) - $("#div1 span").outerHeight(true);
+		};
+		
+		
+		$("#div1 span").css({"left": x});//花括号成对出现中间有冒号！！!
+		$("#div1 span").css({"top": y});
+
+		var a = $("#div2").outerWidth(true) - $("#div2 img").outerWidth(true);
+		var b = $("#div1").outerWidth(true) - $("#div1 span").outerWidth(true);
+		var c = $("#div2").outerHeight(true) - $("#div2 img").outerHeight(true);
+		var d = $("#div1").outerHeight(true) - $("#div1 span").outerHeight(true);
+		$("#div2 img").css({"left": (a/b)*x, "top": (c/d)*y});//检查引用元素是否书写正确！
+
+	});
+});
+					</textarea>
+					</code>
+				</li>
+				</article>
+			</div>
+		</div>
+		<sidebar>
+			<div class="global-side">
+				<h3>目录</h3>
+				<ul>
+					<li><a href="/game1">数独游戏<i></i></a></li>
+					<li><a href="/webappphoto">移动相册<i></i></a></li>
+					<li><a href="/blogcss">扁平化风格博客<i></i></a></li>
+					<li><a href="/mooc1">慕课网页面<i></i></a></li>
+					<li><a href="/jd_nav">京东导航栏<i></i></a></li>
+				</ul>
+			</div>
+		</sidebar>
+	</div>
+	<footer>
+		<p>@copy 丸熊酱</p>
+	</footer>
+	<script>
+		$(document).ready(function(){
+			$("#div1").mouseover(function(){
+				$("#div1 span").show();
+				$("#div2").show();
+			});
+
+			$("#div1").mouseout(function(){
+				$("#div1 span").hide();
+				$("#div2").hide();
+			});
+
+			$("#div1").mousemove(function(e){
+				var e =e || document.event;
+
+				var x = e.clientX - $("#div1 span").outerWidth(true)/2;
+				var y = e.clientY - $("#div1 span").outerHeight(true)/2;
+
+				if( x < 0 ){
+					x = 0;
+				}
+				if( x > $("#div1").outerWidth(true) - $("#div1 span").outerWidth(true)){
+					x = $("#div1").outerWidth(true) - $("#div1 span").outerWidth(true);
+				}
+
+				if( y < 0 ){
+					y = 0;
+				}
+				if( y > $("#div1").outerHeight(true) - $("#div1 span").outerHeight(true)){
+					y = $("#div1").outerHeight(true) - $("#div1 span").outerHeight(true);
+				};
+				
+				
+				$("#div1 span").css({"left": x});//花括号成对出现中间有冒号！！!
+				$("#div1 span").css({"top": y});
+
+				var a = $("#div2").outerWidth(true) - $("#div2 img").outerWidth(true);
+				var b = $("#div1").outerWidth(true) - $("#div1 span").outerWidth(true);
+				var c = $("#div2").outerHeight(true) - $("#div2 img").outerHeight(true);
+				var d = $("#div1").outerHeight(true) - $("#div1 span").outerHeight(true);
+				$("#div2 img").css({"left": (a/b)*x, "top": (c/d)*y});//检查引用元素是否书写正确！
+	
+			});
+		});
+	</script>
+</body>
+</html>

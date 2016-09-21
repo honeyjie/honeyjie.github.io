@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>移动相册</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/articleband.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/lib/animate.css" rel="stylesheet" type="text/css">
+	<script src="/lib/zepto.min.js"></script>
+	<style>
+		body{
+			background:black;
+			overflow:hidden;
+			color: #FFF;
+		}
+		ul{
+			list-style:none;
+			overflow: hidden;
+		}
+		ul li {
+			float: left;
+		}
+		.large{
+			width:100%;height:100%;position:absolute;top:0px;left:0px;background-color:black;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+<!-- 	<p>请在移动模式中先刷新后浏览，点击小图查看大图，实现图片滑动和等比例缩放，构造等比例缩放函数</p> -->
+	<div class="wrapper">
+		
+	<ul class="img-container clearfix" id="container">
+	</ul>
+	<div class="large animated fadeInDown" id="large_container" style="display:none;">
+		<img id = "large_img" class="animated fadeInDown">
+	</div>
+	<script>
+		$(function(){
+			var total = 17;
+			var zWin = $(window);
+			var wImage = $("#large_img");
+			var domImage = wImage[0];
+			var ww = zWin.width();
+			var wh = zWin.height();
+			var padl = 2;
+			var padt = 2;
+			var m = 4;
+			var n = 8;
+			var ew = Math.floor((ww - (m-1)*padl)/m);
+			var eh = Math.floor((wh - (n-1)*padt)/n);
+			var rate1 = ew/eh;
+
+			var render = function(){
+				var tmpl = "";
+				for (var i = 1; i <= 17; i++) {
+					var pl = padl;
+					var pt = padt;
+					if (i % 4 === 1) {
+						pl = 0;
+					};
+					if (i <= 4) {
+						pt = 0;
+					}
+					tmpl += '<li data-id="'+i+'" class="animated bounceIn"style="width: ' + ew + 'px; height: ' + eh + 'px; margin-left: '+ pl +'px;margin-top:'+ pt +'px;"><img id="img-'+ i +'" src="/picture/webphoto/' + i+ '.jpg"></li>';
+				};
+				$("#container").html(tmpl);
+				$("ul").css({"width":ww +"px","height":wh +"px"});
+			};
+
+			render();
+			Imgrt(ew,eh,$("img[id^=img-]"));
+			var id = 1;
+			function go(id) {
+					$("#large_img").attr("src", "/picture/webphoto/"+id+".large.jpg");
+			}
+			$("#container").delegate("li","tap",function(){
+				var id = $(this).attr("data-id");
+				$("#large_container").show().css("background","#036");
+				go(id);
+				Imgrt(ww,wh,$("#large_img"));
+			});
+			$("#large_container").bind("tap",function(){
+				$(this).hide();
+			});
+			$("#large_container").mousedown(function(e){
+				e.preventDefault();
+			});
+			$("#large_container").swipeLeft(function(){
+				id++;
+				if (id > 17){
+					id =17;
+				}
+				go(id);
+			});
+
+			$("#large_container").swipeRight(function(){
+				id--;
+				if (id < 1) {
+					id = 1;
+				}
+				go(id);
+			});
+			function Imgrt(w,h,img) {
+				setTimeout(function(){
+					img.each(function(i,el){
+						var Img = $("<img/>");
+						Img.attr("src",this.src);
+						var wr = Img[0].width;
+						var hr = Img[0].height;
+						var rate2 = wr/hr;
+						var rate1 = w/h;
+						if (rate2 > rate1) {
+							$(el).css({
+								"width": w + "px",
+								"height": parseInt(w/rate2) + "px"
+							});
+						} else {
+							$(el).css({
+								"height": h + "px",
+								"width": parseInt(h*rate2) + "px"
+							});
+						};
+						Img = null;
+					});
+					img.parent().css({
+						"display": "-webkit-box",
+						"-webkit-box-pack": "center",
+						"-webkit-box-align": "center"
+					})
+				},500)
+			};
+			setTimeout(function(){$("img[id^=img-]").each(function(i,el) {
+				var that = $("<img/>");
+				that.attr("src",this.src);
+					var wr = that[0].width;
+					var hr = that[0].height;
+					var rate2 = wr/hr;
+					if (rate2 > rate1) {
+						$(el).css({
+							"width": ew + "px",
+							"height": (parseInt(ew/rate2)) + "px"
+						});
+					} else {
+						$(el).css({
+							"height": eh + "px",
+							"width": (parseInt(eh*rate2)) + "px"
+						});
+					}
+				}),500});
+		});
+	</script>
+	<footer>
+		<p>@copy Xiong</p>
+	</footer>
+</body>
+</html>

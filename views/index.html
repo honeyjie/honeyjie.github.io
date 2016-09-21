@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Xiong</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+	<script src="/lib/jquery/jquery.min.js"></script>
+</head>
+	<style>
+		article h2 {
+			margin-bottom: 16px;
+		}
+		article p {
+			text-indent: 2em;
+			font-size: 12px;
+		}
+		.fa-heart-o {
+			color: #036!important;
+		}
+		span + em {
+			display: none;
+		}
+		.wrap-art {
+			margin: 40px;
+			height: auto;
+		}
+		.wrap-art li {
+			margin: 0 0 20px 0;
+			background: #FFF;
+			padding: 40px;
+			line-height: 2.0em;
+		}
+		.wrap-art li h2 {
+			margin: 0 0 20px 0;
+		}
+		.list-footer .more{
+			color: #CCC;
+			font-size: 8px!important;
+			margin: 16px 0;
+			font-weight: lighter;
+		}
+		.list-footer .more:hover {
+			color: #69c;
+		}
+		.list-footer span {
+			color: #CCC;
+		}
+		.list-footer span+em {
+			font-size: 12px;
+		}
+		.list-footer span:hover {
+			color: #369;
+		}
+
+	</style>
+<body>
+	<header>
+		<div class="global-nav">
+			<h1>丸熊酱</h1>
+			<ul>
+				<li><a href="">首页</a></li>
+				<li><a href="/resum">简历</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="wrapper">
+		<div class="main">
+			<div class="wrap-art">
+				<ul>
+					<li>
+						<h2><a href="/article1" target="_blank">弹幕评论</a></h2>
+						<article>
+							<p>hi，你好！点击这里来评论下我的博客吧！下方有很炫的弹幕功能，在评论里的每一句话，字体大小，颜色，高度，循环，延迟时间都不一样，这样动态的评论，对写作者来说简直棒极了，你不需要一页页翻找、一条条查看，所有信息都以随机的形式，不同的样式出现再你的眼前，她们是彩色的，自由的，高效的，巧合的，而你是受欢迎的，有一种正在直播的味道。这完全是我头脑发热做的，博客中第一个功能。</p>
+						</article>
+						<div class="list-footer">
+							<a href="/article1" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="false" data_sub = "1"></span>
+							<em></em>
+						</div>
+					</li>
+					<li>
+						<h2><a href="/game1" target="_blank">数独游戏</a></h2>
+						<article>
+						<p>这是非常棒的益智游戏，在学习前端之初练习过一个数独(又称"九宫格")的静态页面，那是一个现在看来非常简单的table,但当时我竟然写了81个"td"标签，现在终于可以用js实现了它了。完全的js渲染表格，随机取题，计时器功能，用正则表达式圈住每行，每列，每宫，组成数组，重复数字处理。这也是我头脑发热想做的，第一款游戏。
+						</p></article>
+						<div class="list-footer">
+							<a href="/game1" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="true" data_sub = "0"></span>
+							<em></em>
+						</div>
+					</li>
+					<li>
+						<h2><a href="/webappphotolist" target="_blank">移动相册</a></h2>
+						<article><p>点开这个需要在手机模式下查看效果，采用zepto插件，这是一个慕课网webapp的练习，但不仅仅是练习。在原基础上，我通过自己的思路和方法实现，并且封装了图片等比例缩放和居中函数，好用得不亦乐乎！这是我做的第一个比较webapp作品。</p></article>
+						<div class="list-footer">
+						<a href="/webappphotolist" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="true" data_sub = "33"></span>
+							<em>12</em>
+						</div>
+					</li>
+					<li>
+						<h2><a href="/blogcss" target="_blank">偏平化风格blog</a></h2>
+						<article><p>
+							这也是在慕课网上的练习，是我模仿做的第一个完整的博客，而且很文艺。主要用到html和大量的css，也有回到顶部，伸缩菜单是用Javascript实现的。
+						</p></article>
+						<div class="list-footer">
+							<a href="/blogcss" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="true" data_sub = "0"></span>
+							<em>12</em>
+						</div>
+					</li>
+					<li>
+						<h2><a href="/scrolljs" target="_blank">js原生轮播图</a></h2>
+						<article><p>这是早期一个轮播图实践，原生的Javascript代码，开始做这个练习花了些时间并尝试改造，详情页里有介绍重点的片段代码。</p></article>
+						<div class="list-footer">
+							<a href="/scrolljs" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="true" data_sub = "2"></span>
+							<em>12</em>
+						</div>
+					</li>
+					<li>
+						<h2><a href="/mooc1" target="_blank">慕课网页面</a></h2>
+						<article><p>这是一个比较完整的模仿教程版本的网站，有首页，列表页和详情页。可以通过首页点击查看。这里面有用到收藏、添加到首页，轮播图插件。</p></article>
+						<div class="list-footer">
+							<a href="/mooc1" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="true" data_sub = "2"></span>
+							<em>12</em>
+						</div>
+					</li>
+					<li>
+						<h2><a href="/jd_nav" target="_blank">京东导航栏</a></h2>
+						<article><p>较早做的导航栏，有一些小技巧和对实际网站html结构的学习，用dl,dt,dd展示内容代替ul,li列表。还有些小技巧如添加icon，处理衔接处等等。详情里只展示了导航栏效果，未作详细说明。</p></article>
+						<div class="list-footer">
+							<a href="/jd_nav" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="true" data_sub = "20"></span>
+							<em>12</em>
+						</div>
+					</li>
+					<li>
+						<h2><a href="/morelarge" target="_blank">放大镜效果</a></h2>
+						<article><p>较早做的导航栏，有一些小技巧和对实际网站html结构的学习，用dl,dt,dd展示内容代替ul,li列表。还有些小技巧如添加icon，处理衔接处等等。详情里只展示了导航栏效果，未作详细说明。</p></article>
+						<div class="list-footer">
+							<a href="/morelarge" class="more" target="_blank">Read More</a>
+							<br>
+							<span class="fa fa-heart-o" aria-hidden="true" data_sub = "20"></span>
+							<em>12</em>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<sidebar>
+			<div class="global-side">
+				<h3>目录</h3>
+				<ul>
+					<li><a href="/game1">弹幕评论<i></i></a></li>
+					<li><a href="/game1">数独游戏<i></i></a></li>
+					<li><a href="/webappphoto">移动相册<i></i></a></li>
+					<li><a href="/blogcss">扁平化风格博客<i></i></a></li>
+					<li><a href="/mooc1">慕课网页面<i></i></a></li>
+					<li><a href="/jd_nav">京东导航栏<i></i></a></li>
+					<li><a href="/morelarge">放大镜效果<i></i></a></li>
+				</ul>
+			</div>
+		</sidebar>
+	</div>
+	<footer>
+		<p>@copy Xiong</p>
+	</footer>
+	<script>
+	$(function(){
+
+		$("span[data_sub]").each(function(){
+			var data = $(this).attr("data_sub");
+			$(this).next().text(data);
+			var num = data;
+			if (num > 0) {
+				$(this).next().css({"display":"inline-block"});
+			};
+			$(this).click(function(){
+				
+				$(this).addClass("fa-heart").css("color","#9cf");
+				$(this).removeClass("fa-heart-o");
+				num = parseInt(num) + 1;
+				data = num;
+				$(this).attr("data_sub",num);
+				$(this).next().text(num);
+				if (num) {
+					$(this).next().css({"display":"inline-block"});
+				}
+			});
+			
+		});
+	})
+	
+
+	
+	</script>
+</body>
+</html>

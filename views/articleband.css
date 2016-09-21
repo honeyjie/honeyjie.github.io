@@ -1,0 +1,36 @@
+		h3 {
+		font-size: 14px;
+		margin-top: 20px;
+		font-weight: lighter;
+	}
+	textarea.code_text{
+		width: 80%;
+		min-height: 200px;
+		white-space: nowrap;
+		font-weight: lighter;
+		line-height: 1.5em;
+		border: none;
+		border: 2px dotted #996;
+		padding: 20px;
+		border-radius: 5px;
+	}
+	.detail {
+		border: none;
+		padding: 5px 10px;
+		background: #996;
+		margin-top: 30px;
+	}
+	article p {
+		width: 80%;
+		text-indent: 2em;
+	}
+	.wrap:after {
+		content: "";
+		display: block;
+		clear: both;
+		height: 0;
+		visibility: hidden;
+	}
+	.wrap{
+		zoom: 1;
+	}

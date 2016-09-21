@@ -1,0 +1,230 @@
+body {
+	background: rgb(245,245,245);
+	font-family: "Trebuchet MS",Verdana,Arial,sans-serif;
+}
+
+.global-nav {
+	width:100%;
+	height: 28px;
+	background: #036;
+	position: fixed;
+	z-index: 10;
+}
+.global-nav h1 {
+	color: #FFF;
+	font-size: 14px;
+	border-width: bold;
+	height: 28px;
+	line-height: 28px;
+	margin-left: 20px;
+}
+.global-nav ul {
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+.global-nav ul li {
+	float: left;
+	padding-left: 20px;
+}
+.global-nav ul li a {
+	height: 28px;
+	line-height: 28px;
+	font-size: 14px;
+	color: #FFF;
+}
+.wrapper {
+	position: relative;
+	top: 28px;
+}
+.main {
+	float: left;
+	width: 78%;
+	height: auto;
+}
+.wrap-art {
+	margin: 40px;
+	height: auto;
+}
+.wrap-art li {
+	margin: 0 0 20px 0;
+	background: #FFF;
+	padding: 40px;
+	line-height: 2.0em;
+}
+.wrap-art li h2 {
+	margin: 0 0 20px 0;
+}
+.list-footer .more{
+	color: #CCC;
+	font-size: 8px!important;
+	margin: 16px 0;
+	font-weight: lighter;
+}
+.list-footer .more:hover {
+	color: #69c;
+}
+.list-footer span {
+	color: #CCC;
+}
+.list-footer span+em {
+	font-size: 12px;
+}
+.list-footer span:hover {
+	color: #369;
+}
+.global-side {
+	width: 16%;
+	top: 68px;
+	background: #FFF;
+	position: fixed;
+	right: 40px;
+	line-height: 3em;
+	padding: 20px;
+}
+.global-side li a {
+	display: inline-block;
+	width: 100%;
+}
+.global-side li a:hover >i{
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+	background: #369;
+}
+.global-side li i{
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin: 20px 10px 0 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	background: #9cf;
+}
+
+.art-content {
+	line-height: 2em;
+	margin: 40px;
+	background: #FFF;
+	padding: 40px;
+
+}
+article h2 {
+	margin-bottom: 16px;
+}
+article p {
+	text-indent: 2em;
+	font-size: 12px;
+}
+.write {
+	position: relative;
+}
+.comment {
+	margin: 40px 40px 100px 40px;
+	height: auto;
+	position: relative;
+}
+#comment-content{
+	border: 1px solid #CCC;
+	height: 60px;
+	width: 500px;
+	white-space: pre-wrap;
+	word-break: break-all;
+	line-height: 2em;
+	padding: 10px;
+}
+#public{
+	position: absolute;
+	padding: 8px 16px;
+	border: none;
+	color: #FFF;
+	background: #ccc;
+	left: 462px;
+	display: none;
+	z-index: 2;
+}
+#public.button-on {
+	background: #036;
+}
+.comment .star {
+	margin-bottom: 10px;
+}
+.comment .star i{
+	color: #ccc;
+}
+.comment [data_string] {
+	font-size: 12px;
+	color: #666;
+}
+#comment-list {
+	margin: 60px 0;
+	height: 150px;
+	background: #6cf;
+	padding: 20px;
+	line-height: 2em;
+	position: relative;
+}
+#comment-list li a{
+	position: absolute;
+	padding: 5px 10px;
+	opacity: 0;
+	display: inline-block;
+	-webkit-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-webkit-animation-duration: 5s;
+	-o-animation-duration: 5s;
+	animation-duration: 5s;
+	-webkit-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-name: "comment-list";
+	-o-animation-name: "comment-list";
+	animation-name: "comment-list";
+	-webkit-animation-play-state: paused;
+	-o-animation-play-state: paused;
+	animation-play-state: paused;
+}
+@-webkit-keyframes comment-list {
+	from {
+		left: 2%;
+		opacity: 0;
+	}
+	10%,80%{
+		opacity: 1;
+	}
+
+	to {
+		left: 85%;
+		opacity: 0;
+	}
+}
+#comment-list li span {
+	display: none;
+}
+#comment-list p {
+	width: 100px;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	height: 150px;
+	line-height: 150px;
+	position: absolute;
+	font-size: 16px;
+	color: #369;
+}
+
+footer {
+	clear: both;
+	background: #FFF;
+	height: 40px;
+	margin-top: 30px;
+}
+footer p {
+	width: 100px;
+	margin: 0 auto;
+	line-height: 40px;
+}

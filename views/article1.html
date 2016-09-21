@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Xiong</title>
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/articleband.css">
+	<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+	<script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+<style>
+article h2 {
+	margin-bottom: 16px;
+}
+.art-content p {
+	text-indent: 2em;
+	font-size: 12px;
+}
+.write {
+	position: relative;
+}
+.comment {
+	margin: 40px 40px 100px 40px;
+	height: auto;
+	position: relative;
+}
+.comment span {
+	display: none;
+}
+#comment-content{
+	border: 1px solid #CCC;
+	height: 60px;
+	width: 500px;
+	white-space: pre-wrap;
+	word-break: break-all;
+	line-height: 2em;
+	padding: 10px;
+}
+#public{
+	position: absolute;
+	padding: 8px 16px;
+	border: none;
+	color: #FFF;
+	background: #ccc;
+	left: 462px;
+	display: none;
+	z-index: 2;
+}
+#public.button-on {
+	background: #036;
+}
+.comment .star {
+	margin-bottom: 10px;
+}
+.comment .star i{
+	color: #ccc;
+}
+.comment [data_string] {
+	font-size: 12px;
+	color: #666;
+}
+#comment-list {
+	margin: 60px 0;
+	height: 150px;
+	background: #6cf;
+	padding: 20px;
+	line-height: 2em;
+	position: relative;
+}
+#comment-list li a{
+	position: absolute;
+	padding: 5px 10px;
+	opacity: 0;
+	display: inline-block;
+	-webkit-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-webkit-animation-duration: 5s;
+	-o-animation-duration: 5s;
+	animation-duration: 5s;
+	-webkit-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-name: "comment-list";
+	-o-animation-name: "comment-list";
+	animation-name: "comment-list";
+	-webkit-animation-play-state: paused;
+	-o-animation-play-state: paused;
+	animation-play-state: paused;
+}
+@-webkit-keyframes comment-list {
+	from {
+		left: 2%;
+		opacity: 0;
+	}
+	10%,80%{
+		opacity: 1;
+	}
+
+	to {
+		left: 85%;
+		opacity: 0;
+	}
+}
+#comment-list li span {
+	display: none;
+}
+#comment-list p {
+	width: 100px;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	height: 150px;
+	line-height: 150px;
+	position: absolute;
+	font-size: 16px;
+	color: #369;
+}
+</style>	
+
+<body>
+	<header>
+		<div class="global-nav">
+			<h1>丸熊酱</h1>
+			<ul>
+				<li><a href="/">首页</a></li>
+				<li><a href="/resum">简历</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="wrapper">
+		<div class="main">
+			<div class="art-content">
+				<h2>弹幕评论</h2>
+				<p>hi! 点击这里来评论下我的博客吧！下方有很炫的弹幕功能，在评论里的每一句话，字体大小，颜色，高度，循环，延迟时间都不一样，这样动态的评论，对写作者来说简直棒极了，你不需要一页页翻找、一条条查看，所有信息都以随机的形式，不同的样式出现再你的眼前，她们是彩色的，自由的，高效的，巧合的，而你是受欢迎的，有一种正在直播的味道。这完全是我头脑发热做的，博客中第一个功能。</p>
+				<button class= "detail">功能介绍</button>
+				<article class="article">
+					<h3>做这个数独游戏的基本思路是：</h3>
+					<p>1.评论。运用到blur,keyup事件，评论按钮交互，构造中英文字数记录函数</p>
+					<p>2.星级评分。图片采用font-awesome icon插件,配合js实现。</p>
+					<p>3.Ajax运用。每次提交评论实时发送给后端服务器，并接收服务器返回将数据显示在弹幕中</p>
+					<button class= "detail">重要代码</button>
+					<ul>
+						<li>
+							<h3>字数记录函数</h3>
+							<p>运用到字符串的charCodeAt()方法、trim(),和正则表达式。符合str.charCodeAt()在0~128之间，用字符串str1拼接起来，通过trim()去除首尾空格后，用split(/\s*\s/)取得单词字符串数组，通过length属性得到英文字符数。</p>
+							<p>除此之外的算作中文，用length属性取中文字数量。</p>
+							<code>
+								<textarea spellcheck="false" class="code_text">
+function wordNum(A){
+	var len = A.length;
+	var str1 = "";
+	var str2 = "";
+	for (var i = 0; i < len; i++) {
+		if(A.charCodeAt(i) <= 128 && A.charCodeAt(i) >=0){
+			str1 += A[i];
+		} else {
+			str2 += A[i];
+		};
+	}
+	var len_cn = str2.length;
+	var len_en = str1.trim().split(/\s*\s/).length;//对分离的英文字符串去除前后空格
+	var Len =  len_cn + len_en;
+	return Len;
+};
+								</textarea>
+							</code>
+						</li>
+						<li>
+							<h3>弹幕效果</h3>
+							<p>将评论内容经由服务器返回后存储在li中，遍历列表,给每个li设置随机的高度，字体大小，颜色，延迟时间，动画时长。每次点击弹幕区和提交评论即可触发。</p>
+							<code>
+								<textarea spellcheck="false" class="code_text">
+$(function(){
+	$("#comment-list").click(function(){
+		$("#comment-more").css("display","none");
+			var time;
+			var h;
+			var duration;
+			var total_h = $("#comment-list").height();
+			var size;
+			var a,b,c = "";
+			var color = "";
+			for (var i = 0; i < $("#comment-list li").length; i++) {
+			var el = $("#comment-list li a");
+			h = Math.random()*total_h;
+			time = Math.random()*10000;
+			duration = Math.random()*10000 + 1000;
+			size = Math.random()*(24-12)+ 12;
+			var color_str = "0123456789abcdef";
+			var a= Math.floor(Math.random()*16);
+			var b= Math.floor(Math.random()*16);
+			var c= Math.floor(Math.random()*16);
+			var arr = color_str.split("");
+			el[i].style.webkitAnimationPlayState = "running";
+			el[i].style.webkitAnimationDelay = time + "ms";
+			el[i].style.webkitAnimationDuration = duration + "ms";
+			el[i].style.top = h + "px";
+			el[i].style.fontSize = size + "px";
+			el[i].style.color = "#"+arr[a]+arr[b]+arr[c];
+		}
+	})	
+	return false;
+})
+								</textarea>
+							</code>
+						</li>
+					</ul>
+				</article>
+			</div>
+			<div class="comment">
+				<div class="star">
+					<i class="fa fa-star" aria-hidden="true"></i>
+					<i class="fa fa-star" aria-hidden="true"></i>
+					<i class="fa fa-star" aria-hidden="true"></i>
+					<i class="fa fa-star" aria-hidden="true"></i>
+					<i class="fa fa-star" aria-hidden="true"></i>
+				</div>
+				<div class = "write">
+				<textarea id="comment-content" name="comment_content" placeholder="写下你的评论..."></textarea><!--HTML5支持textarea-->
+				<span data_string="30">您已输入<i></i></span>
+				<button id = "public">发表</button>
+				</div>
+				<div id="comment-list">
+					<h3 id = "comment-more">点我查看评论</h3>
+					<ul>
+						<li><span>2016年9月15日</span><a>很赞哦!</a></li>
+						<li><span>2016年9月13日</span><a>加油！真棒!</a></li>
+						<li><span>2016年9月12日</span><a>观点不够新颖</a></li>
+						<li><span>2016年8月27日</span><a>我是菜鸟来学习的</a></li>
+						<li><span>2016年8月20日</span><a>还需要努力</a></li>
+						<li><span>2016年8月18日</span><a>看好你哦!</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<sidebar>
+			<div class="global-side">
+				<h3>目录</h3>
+				<ul>
+					<li><a href="/game1">数独游戏<i></i></a></li>
+					<li><a href="/webappphoto">移动相册<i></i></a></li>
+					<li><a href="/blogcss">扁平化风格博客<i></i></a></li>
+					<li><a href="/mooc1">慕课网页面<i></i></a></li>
+					<li><a href="/jd_nav">京东导航栏<i></i></a></li>
+					<li><a href="/morelarge">放大镜效果<i></i></a></li>
+				</ul>
+			</div>
+		</sidebar>
+	</div>
+	<footer>
+		<p>@copy 丸熊酱</p>
+	</footer>
+	<script>
+		function wordNum(A){
+			var B = A.trim();
+			var len = B.length;
+			var str1 = "";
+			var str2 = "";
+			for (var i = 0; i < len; i++) {
+				if(B.charCodeAt(i) <= 128 && B.charCodeAt(i) >=0){
+					str1 += B[i];
+				} else {
+					str2 += B[i];
+				};
+			}
+			var len_cn = str2.length;
+			var len_en = str1.split(/\s*\s/).length;
+			var Len =  len_cn + len_en;
+			return Len;
+		}
+		//星级评定
+		$(".star>i").click(function(){
+			$(this).prevAll().css({"color":"orange"});//设置class不行？优先级问题
+			$(this).css({"color":"orange"});
+			$(this).unbind("mouseover mouseout");
+		});
+		$(".star>i").mouseover(function(){
+			$(this).prevAll().css({"color":"orange"});
+			$(this).css({"color":"orange"});
+		});
+		$(".star>i").mouseout(function(ev){
+			var e = ev.target || document.ev.src
+			$(e).prevAll().css({"color":"rgb(203,203,203)"});
+			$(e).css({"color":"rgb(203,203,203)"});
+		});
+
+		$(".test").addClass("star_on");
+	</script>
+	<script>
+		$(function(){
+		var $content = $("#comment-content");
+		var $button = $("#public");
+		var $str_num = $("span[data_string]");
+		var val = $content.val();
+			$content.focus(function(){
+			if (!val) {
+				$button.css({"display":"block"});
+			}
+		});
+		$content.keyup(function(){
+			val = $content.val();
+			if (val){
+				$button.css({"display":"block"});
+				$button.addClass("button-on");
+				$str_num.css({"display":"block"});
+				//统计字数
+				var string1 = $content.val();
+				var string2 = wordNum(string1);
+				$content.next().children().text(string2);
+			}else {
+				$button.css({"display": "none"});
+				$str_num.css({"display":"none"});
+				$content.next().children().text("");
+			}
+
+		});
+
+		$(function(){
+			$(".comment .button-on").live("click",function(){
+				var now = new Date();
+				var day = now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日";
+				console.log(day);
+				var val = $("#comment-content").val();
+				$.post("/comment_content", { 
+					comment_content: val,
+					comment_day: day
+				}, function(data,textStatus){
+					var comment = data.comment_content;
+					var appendstr = "<li><span>"+day+"</span><a>"+comment+"</a></li>";
+					$("#comment-list ul").prepend(appendstr);
+				},"json");
+					$("#comment-content").val("");
+					$(".comment button").toggle();
+					$("[data_string]").toggle();
+					$("#comment-list").trigger("click");
+			});
+		});
+		$(function(){
+			$("#comment-list").click(function(){
+				$("#comment-more").css("display","none");
+					var time;
+					var h;
+					var duration;
+					var total_h = $("#comment-list").height();
+					var size;
+					var a,b,c = "";
+					var color = "";
+					for (var i = 0; i < $("#comment-list li").length; i++) {
+					var el = $("#comment-list li a");
+					h = Math.random()*total_h;
+					time = Math.random()*10000;
+					duration = Math.random()*10000 + 1000;
+					size = Math.random()*(24-12)+ 12;
+					var color_str = "0123456789abcdef";
+					var a= Math.floor(Math.random()*16);
+					var b= Math.floor(Math.random()*16);
+					var c= Math.floor(Math.random()*16);
+					var arr = color_str.split("");
+					el[i].style.webkitAnimationPlayState = "running";
+					el[i].style.webkitAnimationDelay = time + "ms";
+					el[i].style.webkitAnimationDuration = duration + "ms";
+					el[i].style.top = h + "px";
+					el[i].style.fontSize = size + "px";
+					el[i].style.color = "#"+arr[a]+arr[b]+arr[c];
+				}
+			})	
+			return false;
+		})
+		function wordNum(A){
+			var len = A.length;
+			var str1 = "";
+			var str2 = "";
+			for (var i = 0; i < len; i++) {
+				if(A.charCodeAt(i) <= 128 && A.charCodeAt(i) >=0){
+					str1 += A[i];
+				} else {
+					str2 += A[i];
+				};
+			}
+			var len_cn = str2.length;
+			var len_en = str1.trim().split(/\s*\s/).length;//对分离的英文字符串去除前后空格
+			var Len =  len_cn + len_en;
+			return Len;
+		};
+	});
+</script>
+</body>
+</html>

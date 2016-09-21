@@ -1,0 +1,313 @@
+*{
+	margin: 0; padding: 0; 
+	box-sizing: border-box;
+	list-style: none;
+
+}
+body {
+	background-color: #F5F5F5;
+	font-size: 12px;
+
+}
+.top {
+	width: 100%;
+	height: 27px;
+	background: url(../picture/mooc1/top_bg.jpg) repeat-x;
+}
+.top_content {
+	width: 1000px;
+	margin: 0 auto;
+}
+.top_content li {
+	list-style: none;
+	float: right;
+	line-height: 27px;
+	padding-left: 10px;
+}
+a:link, a:visited {
+	text-decoration: none;
+	color:#8E8E8E;
+}
+a:hover,a:active {
+	color: #900;
+	text-decoration: none;
+}
+.wrap {
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+}
+.logo {
+	height: 80px;	
+	background-color: #FFF;
+}
+.logo_left {
+	width: 200px;
+	float: left;
+	display: inline;
+}
+.logo_right {
+	margin: 0;
+	padding: 0;
+	width: 300px;
+	float: right;
+	line-height: 78px;
+	background: url(../picture/mooc1/tel.jpg) no-repeat left center;
+	text-indent: 30px;
+	color: #818181;
+	display: inline;
+}
+.logo_right span {
+	font-family: "微软雅黑";
+	color: red;
+	font-size: 18px;
+	margin-left: 10px;
+}
+.wrap {
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+}
+.nav {
+	height: 40px;
+	background-color: rgb(127,120,112);
+	padding: 0 40px 0 40px;
+	margin-top: 2px;
+}
+.nav_left {
+	width: 680px;
+}
+.nav_left li{
+	margin: 0;
+	width: 100px;
+	float: left;
+	list-style: none;
+	line-height: 40px;
+	text-align: center;
+	font-size: 18px;
+	display: inline;
+}
+.nav_right{
+	width: 200px;
+	margin: 5px auto;
+	float: right;
+}
+.nav_right input {
+	width: 160px;
+	height: 30px;
+	position: absolute;
+	}
+.nav_right img {
+	width: 30px;
+	float: right;
+	position: absolute;
+	margin-left: 130px;
+	margin-top: 4px;
+}
+.ad {
+	clear: both;
+	overflow: hidden;
+	height: 318px;
+}
+.main {
+	height: 250px;
+	margin-top: 4px;
+	background: #FFF;
+}
+.news {
+	width: 343px;
+	height: 250px;
+	border: 1px solid rgb(232,232,232);
+	float: left;
+}
+.course {
+	width: 413px;
+	height: 250px;
+	border: 1px solid rgb(232,232,232);
+	float: left;
+	margin: 0 6px;
+}
+.sidebar {
+	width: 230px;
+	height: 250px;
+	border: 1px solid rgb(232,232,232);
+	float: right;
+}
+.news_title,.course_title,.sidebar_title {
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 2px solid rgb(232,232,232);
+
+}
+*h3 {
+	border-width: strong;
+}
+.news_title a,.course_title a,.sidebar_title a{
+	float: right;
+}
+.news_pic,.course_pic {
+	padding: 6px;
+	line-height: 22px;
+}
+.news_pic img, .course_pic img{
+	float: left;
+	margin-right: 8px;
+}
+
+.news_pic h4 {
+	margin-bottom: 4px;
+}
+.news_list {
+	margin: 10px;
+}
+.news_list li {
+	padding-left: 10px;
+	border-bottom: 2px dotted rgb(232,232,232);
+	background: url(../picture/mooc1/list.jpg) no-repeat left center;
+	line-height: 24px;
+	height: 24px;
+	list-style: none;
+}
+.news_list li span {
+	color: #999;
+}
+.course_pic {
+	line-height: 20px;
+}
+.course img{
+	width: 150px;
+	height: 100px;
+}
+.course_list{
+	width: 372px;
+	height: 37px;
+	margin: 20px auto;
+	background: url(../picture/mooc1/product_type_bg.jpg) no-repeat center center;
+}
+.course li {
+	float: left;
+	list-style: none;
+	text-align: center;
+	line-height: 37px;
+	margin: 0 15px;
+}
+.video {
+	height: 160px;
+	border: 1px solid #E8E8E8;
+}
+.service {
+	height: 55px;
+	border: 1px solid #E8E8E8;
+}
+.copyright {
+	clear: both;
+	height: 200px;
+	width: 100%;
+	background : url(../picture/mooc1/content_bg.jpg) repeat-x;
+}
+.copyright_content{
+	width: 1000px;
+	height: 200px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+.copyright_content li {
+	float: left;
+	width: 200px;
+	list-style: none;
+	background: url(../picture/mooc1/line.png) no-repeat right top;
+	text-align: center;
+	line-height: 32px;
+	font-size: 18px;
+}
+.copyright_content li ul li {
+	font-size: 14px;
+}
+.list_main {
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 350px;
+	_height: 350px;
+	font-size: 14px;
+	background-color: rgb(232,232,232);
+}
+.news_type {
+	width: 20%;
+	float: left;
+	background-color: #FFF;
+	padding-bottom: 30px;
+    height: 350px;
+}
+.news_type ul {
+	line-height: 37px;
+	margin: 10px;
+}
+.news_type ul li a:link,.news_type ul li a:visited {
+	color: #000;
+}
+.news_type ul li a:hover,.news_type ul li a:active {
+	color: rgb(102,200,100);
+}
+.news_type ul li {
+	border-bottom: 1px dotted rgb(232,232,232);
+}
+.list_title {
+	padding-left: 10px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+}
+.list_box {
+	width: 79%;
+	min-height: 350px;
+	float: right;
+	background-color: #FFF;
+}
+.list_box li span {
+	float: right;
+	padding-right: 10px;
+	color: #999;
+}
+
+footer {
+	width: 400px;
+	margin: 40px auto;
+}
+footer ul li a {
+	padding: 4px 8px;
+	display: inline-block;
+	float: left;
+	border: 1px solid rgb(232,232,232);
+	text-align: center;
+	margin-left: 2px;
+}
+footer ul li a:hover,footer ul li a:active {
+	background-color: #900;
+	color: #FFF;
+}
+.news_detial {
+	padding: 10px;
+}
+.articl {
+	line-height: 27px;
+	text-indent: 2em;
+
+}
+.articl span {
+	margin-right: 20px;
+	color: #999;
+}
+.nav_left a {
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.nav_left a:link, .nav_left a:visited{
+	color: #FEFEFE;
+}
+.nav_left a:hover, .nav_left a:active{
+	background-color: #900;
+	color: #FFF;
+}
