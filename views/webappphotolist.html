@@ -21,6 +21,9 @@
 	.pic {
 		zoom: 1;
 	}
+	article p {
+		text-indent: 2em;
+	}
 </style>	
 
 <body>
@@ -52,15 +55,15 @@
 				</div>
 				<button class= "detail">功能介绍</button>
 				<article class="article">
-				<p>实现这个的思路是：
-				<p>1.图片列表以字符串形式拼接，最终渲染到DOM中。</p>
-				<p>2.封装等比例缩放函数，实现图片列表的等比例缩放和居中效果。</p>
-				<p>3.采用zeptop插件处理移动事件，大图同样等比例压缩居中，实现图片滑动效果。</p>
+				<ul>
+				<li>实现这个的思路是</li>
+				<li>1.图片列表以字符串形式拼接，最终渲染到DOM中。</li>
+				<li>2.封装等比例缩放函数，实现图片列表的等比例缩放和居中效果。</li>
+				<li>3.采用zeptop插件处理移动事件，大图同样等比例压缩居中，实现图片滑动效果。</li>
+				</ul>
 				<button class= "detail">重要代码</button>
 			<ul>
 				<li><h3>图片列表渲染</h3>
-				<p>
-				</p>
 				<div class="code">
 					<code>
 					<textarea spellcheck="false" class="code_text">
@@ -135,7 +138,6 @@ function Imgrt(w,h,img) {
 					<li><a href="/blogcss">扁平化风格博客<i></i></a></li>
 					<li><a href="/mooc1">慕课网页面<i></i></a></li>
 					<li><a href="/jd_nav">京东导航栏<i></i></a></li>
-					<li><a href="/morelarge">放大镜效果<i></i></a></li>
 				</ul>
 			</div>
 		</sidebar>
