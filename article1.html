@@ -118,6 +118,9 @@ article h2 {
 	font-size: 16px;
 	color: #369;
 }
+#click {
+	display: block;
+}
 </style>	
 
 <body>
@@ -234,6 +237,7 @@ $(function(){
 						<li><span>2016年8月18日</span><a>看好你哦!</a></li>
 					</ul>
 				</div>
+				<h3 id = "click">每次点我都不一样</h3>
 			</div>
 		</div>
 		<sidebar>
@@ -244,6 +248,7 @@ $(function(){
 					<li><a href="/webappphoto">移动相册<i></i></a></li>
 					<li><a href="/blogcss">扁平化风格博客<i></i></a></li>
 					<li><a href="/mooc1">慕课网页面<i></i></a></li>
+					<li><a href="/scrolljs">js原生轮播图<i></i></a></li>
 					<li><a href="/jd_nav">京东导航栏<i></i></a></li>
 				</ul>
 			</div>
@@ -340,6 +345,7 @@ $(function(){
 		$(function(){
 			$("#comment-list").click(function(){
 				$("#comment-more").css("display","none");
+				$("#click").css("display","block");
 					var time;
 					var h;
 					var duration;
