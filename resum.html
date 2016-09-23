@@ -4,41 +4,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>我的简历</title>
-	<meta name = "viewport" content = "width = device-width, initial-scale = 1"
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1">
 </head>
 <style>
-	@media (min-device-width: 375px) {
-		html {
-			font-size: 9px;
-		}
-	}
-	@media (min-device-width: 540px) {  
-		html {
-			font-size: 10px;
-		}
-    }
-    @media (min-device-width: 768px) {
-    	html {
-			font-size: 11px;
-		}
-    }
-    @media (min-device-width: 992px) {
-    	html {
-			font-size: 12px;
-		}
-    }
-    @media (min-device-width: 1200px) {
-    	html {
-			font-size: 14px;
-		}
-    }
+
+
 	body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,p,pre,code,form,fieldset,legend,input,button,textarea,blockquote{margin:0;padding:0}
 	table{border-collapse:collapse;border-spacing:0}
-	body,td,th{font: 0.9rem Helvetica,Arial,sans-serif;}
+	body,td,th{Helvetica,Arial,sans-serif;}
 	a {
 		border-bottom: 0.2rem dotted #369;
 		text-decoration: none;
 		color: #369;
+		padding: 0.2rem 0.5rem;
 	}
 	body {
 	    background: #996;
@@ -52,37 +30,36 @@
 	}
 	.wrapper {
 		background: rgb(255,255,255);
-		padding: 10% 8% 16% 8%;
+		padding: 10% 8% 10% 8%;
 		box-shadow: 0 0 0.3rem rgba(0,0,0,0.2);
-		margin: 10% 8%;
+		margin: 8% 10%;
 	}
 	h1 {
 		font-size: 2.3rem;
 		margin-bottom: 1.2em;
 	}
 	h2 {
-		font-size: 1.0rem;
-		margin-bottom: 1.8rem;
+		font-size: 1.2rem;
+		margin-bottom: 1.9rem;
 		position: relative;
-		display: table-cell;
+		padding-top: 0.2rem;
 	}
 	header {
 		margin-bottom: 5%;
 	}
 	.left {
 		float: left;
-		display: table;
-		width:10%;
+		width:12%;
 	}
 	.right {
 		float: left;
 		margin-left: 2rem;
-		width: 73%;
+		width: 80%;
 	}
 	section {
 		position: relative;
-		overflow: auto;
-		zoom: 1;
+		overflow: hidden;
+/*		zoom: 1;*/
 		margin-bottom: 2rem;
 	}
 	p {
@@ -118,14 +95,53 @@
 		float: right;
 		margin-right: 0;
 	}
+	.blog .right, .add .right {
+		padding: 0.3rem 0;
+	}
 	li i {
 		display: inline-block;
 		width: 0.5rem;
 		height: 0.5rem;
 		border-radius: 50%;
 		background: #34495E;
-		margin-right: 10px;
+		margin-right: 1rem;
 	}
+	footer p {
+		color: #777;
+		text-align: center;
+		margin-top: 4rem;
+		width: 80%;
+		margin: 0 auto;
+	}
+	@media  screen and (max-width: 1300px) {
+    	html {
+			font-size: 14px;
+		}
+    }
+    @media  screen and (max-width: 992px) {
+    	html {
+			font-size: 12px;
+		}
+    }
+    @media  screen and (max-width: 768px) {
+    	html {
+			font-size: 11px;
+		}
+    }
+		
+    @media screen and (max-width: 540px) {  
+		html {
+			font-size: 10px;
+		}
+    }
+	@media screen and (max-width: 375px) {
+		html {
+			font-size: 9px;
+		}
+	}
+   
+
+
 </style>
 <body>
 	<div class = "wrapper">
@@ -169,23 +185,23 @@
 					</div>
 					<div class = "right">
 						<ul>
-							<li><i></i>了解HTML、CSS、Javascript基本知识,了解Ajax、Json、cookie、离线存储等。对性能优化有一定了解。</li>
-							<li><i></i>会使用CSS3和HTML5新增功能制作较复杂的动画，Canvas绘图，理解语义化，样式、行为的分离,对响应式布局，网格式布局，弹性布局有了解，这份简历采用响应式布局制作。</li>
+							<li><i></i>了解HTML、CSS、Javascript基本知识,了解Ajax、离线存储等。对性能优化有一定了解。</li>
+							<li><i></i>会使用CSS3和HTML5新增功能制作较复杂的动画，Canvas绘图，对各种布局有了解。</li>
 							<li><i></i>有自己制作的网站作品展示，包括小游戏，弹幕评论，webapp，其他切图页面，Js实现轮播图等。</li>						
-							<li><i></i>了解jQuery、Zeptop、BootStrap、jQuery-mobile框架、及其他CSS、icon插件的运用。</li>
+							<li><i></i>了解jQuery、Zeptop、BootStrap、jQuery-mobile框架、及其他插件组件的运用。</li>
 							<li><i></i>产品出生，会使用Axure、PS、Sketch等相关设计软件,了解用户体验。</li>
 						</ul>
 					</div>
 				</div>
 			</section>
 			<section>
-				<div class = "edu">
+				<div class = "blog">
 					<div class = "left">
 						<h2>我的网站:
 						</h2>
 					</div>
 					<div class = "right">
-						<a href="/">点进博客查看作品</a>
+						<p><a href="/">点进博客查看网站</a></p>
 					</div>
 				</div>
 			</section>
@@ -233,8 +249,20 @@
 					</div>
 				</div>
 			</section>
+			<section>
+				<div class = "add">
+					<div class = "left">
+						<h2>附加信息:
+						</h2>
+					</div>
+					<div class = "right">
+						<p>Github地址: <a ref = "https://github.com/honeyjie"> github.com/honeyjie</a></p>
+					</div>
+				</div>
+			</section>
 		<article>
 		<footer>
+			<p>喜欢技术造就的视觉和功能体验，惊讶于技术带来的改变，热爱这份工作带来的成就感和踏实感。</p>
 		</footer>
 		</article>
 	</wrapper>
