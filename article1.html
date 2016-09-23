@@ -68,6 +68,7 @@ article h2 {
 	padding: 20px;
 	line-height: 2em;
 	position: relative;
+	overflow: hidden;
 }
 #comment-list li a{
 	position: absolute;
@@ -92,7 +93,7 @@ article h2 {
 }
 @-webkit-keyframes comment-list {
 	from {
-		left: 2%;
+		left: -2%;
 		opacity: 0;
 	}
 	10%,80%{
@@ -117,9 +118,10 @@ article h2 {
 	position: absolute;
 	font-size: 16px;
 	color: #369;
+	text-indent: none;
 }
 #click {
-	display: block;
+	display: none;
 }
 </style>	
 
@@ -227,7 +229,7 @@ $(function(){
 				<button id = "public">发表</button>
 				</div>
 				<div id="comment-list">
-					<h3 id = "comment-more">点我查看评论</h3>
+					<p id = "comment-more">点我查看评论</p>
 					<ul>
 						<li><span>2016年9月15日</span><a>很赞哦!</a></li>
 						<li><span>2016年9月13日</span><a>加油！真棒!</a></li>
@@ -236,8 +238,9 @@ $(function(){
 						<li><span>2016年8月20日</span><a>还需要努力</a></li>
 						<li><span>2016年8月18日</span><a>看好你哦!</a></li>
 					</ul>
+					<h3 id = "click">每次点我都不一样</h3>
 				</div>
-				<h3 id = "click">每次点我都不一样</h3>
+				
 			</div>
 		</div>
 		<sidebar>
