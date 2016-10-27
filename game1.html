@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>数独游戏</title>
-	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+<!-- 	<link rel="stylesheet" type="text/css" href="/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/css/header.css">
-	<link rel="stylesheet" type="text/css" href="/css/articleband.css">
+	<link rel="stylesheet" type="text/css" href="/css/articleband.css"> -->
 	<script src="/lib/jquery/jquery.min.js"></script>
     <style>
 		table tr,table td {
@@ -238,7 +238,6 @@ $("td>input:not([readonly])").keyup(function(ev){
 	$(function(){
 		//DOM渲染
 		var tb_content = "";
-		var td_content = "";
 		for (var x = 1; x <= 9; x++) {
 			tb_content += "<tr>"
 			for (var y = 1; y <= 9; y++) {
@@ -368,25 +367,6 @@ $("td>input:not([readonly])").keyup(function(ev){
 					$(that).removeClass("err");
 				}
 			};
-			
-
-			
-		
-			// escapeHTML($("code").text());
-			// function escapeHTML(str){
-			// return str.replace(/[<>&"]/g,function(match){
-			// 	switch(match) {
-			// 	case "<":
-			// 	return "&lt;";
-			// 	case ">":
-			// 	return "&gt;";
-			// 	case "&":
-			// 	return "&amp;";
-			// 	case "\"":
-			// 	return "&quot;";
-			// 	}
-			// });	
-
 		});
  	});
  </script>	
