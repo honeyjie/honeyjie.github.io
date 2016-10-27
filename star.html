@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+	<meta charset="UTF-8">
+	<title>星空</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1, maximum-scale=1, user-scalable = no"/>
+	<script src = "./lib/bower_components/hidpi-canvas/dist/hidpi-canvas.js"></script>
+</head>
+<style>
+	#canvas {
+		margin: 0 auto;
+		border: 1px solid #000;
+	}
+</style>
+
+<body style = "height: 100%">
+	<canvas id = "canvas">
+		
+	</canvas>
+	<script>
+	var getPixelRatio = function(context) {
+	    var backingStore = context.backingStorePixelRatio ||
+	          context.webkitBackingStorePixelRatio ||
+	          context.mozBackingStorePixelRatio ||
+	          context.msBackingStorePixelRatio ||
+	          context.oBackingStorePixelRatio ||
+	          context.backingStorePixelRatio || 1;
+
+	    return (window.devicePixelRatio || 1) / backingStore;
+	};
+	</script>
+	<script>
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+			var ratio = getPixelRatio(ctx);
+			ctx.scale( ratio, ratio);
+
+			var width = document.documentElement.clientWidth;
+			var height = document.documentElement.clientHeight;
+
+			var w = canvas.width = ratio*width;
+			var h = canvas.height = ratio*height;
+
+			canvas.style.width = width + "px";
+			canvas.style.height = height + "px";
+
+			// var grad = ctx.createLinearGradient(x0, y0, r0, x1, y1, r1);
+			var grad = ctx.createRadialGradient(width/2, height, 0, width/2, height, height);
+				grad.addColorStop(0, "#035");
+				grad.addColorStop(1, "#000");
+				ctx.fillStyle = grad;
+				ctx.fillRect(0, 0, w, h);
+
+			//画50颗星星
+			var R, x, y, rotate;
+			for (var i = 0; i < 50; i++) {
+				R = Math.random()*3 + 1;
+				x = Math.random()*width;
+				y = Math.random()*height*0.46;
+				rot = Math.random()*360;
+				drawStar(x, y, R, rot, ctx);
+			}
+
+			function drawStar(x, y, R, rot, ctx) {
+				ctx.save();
+				ctx.translate(x, y);
+				ctx.rotate(rot);
+				ctx.scale(R, R);
+				starPath(ctx);
+				ctx.restore();
+				
+			}
+			function starPath(ctx) {
+				ctx.beginPath();
+				for (var i = 0; i < 5; i++) {
+					ctx.lineTo(Math.cos((18 + 72*i)/180 * Math.PI), Math.sin((18 + 72*i)/180 * Math.PI));
+					ctx.lineTo(Math.cos((54 + 72*i)/180 * Math.PI)*0.5, Math.sin ((54 + 72*i)/180 * Math.PI)*0.5);
+				}
+				ctx.closePath();
+				ctx.fillStyle = "#ffcc33";
+				ctx.fill();
+			}
+			
+			function fillmoon(x, y, R, d, rot, ctx, /*optional*/color) {
+				ctx.save();
+				ctx.translate(x, y);
+				ctx.rotate(rot*Math.PI/180);
+				ctx.scale(R, R);
+				drawmoon(ctx, d);
+				ctx.fillStyle = color || "#fb5";
+				ctx.fill();
+				ctx.restore();
+			}
+			fillmoon(canvas.width/2 - 100, 80, 50, 1, 30, ctx)
+			function drawmoon(ctx, d) {
+				ctx.beginPath();
+				ctx.arc(0, 0, 1, Math.PI/2, 3*Math.PI/2, true);
+				// moveTo(0, -1);//没有作用，必须接着前一个的点画！！
+				// ctx.arcTo(d, 0, 0, 1, (Math.sqrt(1+d*d)) /d);
+				ctx.quadraticCurveTo(d, 0, 0, 1);
+				ctx.closePath();
+			}
+	</script>
+</body>
+	
+</html>
