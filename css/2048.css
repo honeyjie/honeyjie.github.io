@@ -1,0 +1,96 @@
+ * {
+    	padding: 0;
+    	margin: 0;
+    }
+    @media screen and (min-device-width: 300px) {
+        html {
+            font-size: 6px;
+        }
+    }
+    @media screen and (min-device-width: 540px) {  
+        html {
+            font-size: 9px;
+        }
+    }
+    @media screen and (min-device-width: 760px) {
+        html {
+            font-size: 11px;
+        }
+    }
+    @media screen and (min-device-width: 992px) {
+        html {
+            font-size: 12px;
+        }
+    }
+    @media screen and (min-device-width: 1200px) {
+        html {
+            font-size: 13px;
+        }
+    }
+    html {
+    	width: 100%;
+    	height: 100%;
+/*        font-size: 12px;*/
+    }
+    body {
+    	margin: 0;
+    	padding: 0;
+    	color: #000;
+    	height: 100%;
+    	width: 100%;
+    	left: 0;
+    	right: 0;
+    	
+    }
+    #wrap {
+		position: relative;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		overflow: auto;
+		color: #000;
+	}
+  	h1 {
+  		width: 100%;
+		font-family: Imprint MT Shadow;
+  		text-align: center;
+  		font-size: 3rem;
+  		margin: 5% 0;
+  	}
+	#canvas {
+		position: absolute;
+		margin-top: 0rem;
+        left: 50%;
+	}
+	.text {
+		position: relative;
+		width: 100%;
+		height: 5.5rem;
+		margin-bottom: 1rem;
+	}
+	p {
+		float: left;
+/*		margin-left: 10%;*/
+		font-size: 2rem;
+		font-weight: bold;
+		margin-top: 2rem;
+		padding: 0.5rem 0;
+	}
+	#newgame {
+		border: none;
+/*		margin-right: 10%;*/
+		margin-top: 2rem;
+		padding: 0.5rem 0.8rem;
+		float: right;
+		color: white;
+		background: #003399;
+		border-radius: 10%;
+		outline: none;
+		font-size: 2rem;
+	}
+	#score {
+		color: orange;
+		margin-left: 10px;
+
+	}
